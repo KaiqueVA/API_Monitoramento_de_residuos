@@ -8,7 +8,8 @@ __all__ = [
     "ContentorGPSViewSet",
     "LastContentorGPSViewSet",
     "ContentorGoogleMapsViewSet",
-    
+    "BatteryViewSet",
+    "LastBatteryViewSet",
     "VolumeViewSet",
     "LastVolumeViewSet",
     
