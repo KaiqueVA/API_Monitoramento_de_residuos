@@ -1,15 +1,24 @@
 from rest_framework import viewsets, status
 from rest_framework.response import Response
+from rest_framework.pagination import PageNumberPagination
 from ..models import Contentor
 from ..serializers import ContentorSerializer
+
+class ContentorBatteryPagination(PageNumberPagination):
+    page_size = 10
+    page_size_query_param = 'page_size'
+    max_page_size = 100
 
 
 class BatteryViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = ContentorSerializer
+    pagination_class = ContentorBatteryPagination
     
     def list(self, request):
         battery_data = Contentor.objects.values('id', 'battery_level', 'timestamp')
-        return Response(battery_data)
+        paginator = self.pagination_class()
+        paginated_data = paginator.paginate_queryset(battery_data, request)
+        return paginator.get_paginated_response(paginated_data)
     
 class LastBatteryViewSet(viewsets.ViewSet):
     
