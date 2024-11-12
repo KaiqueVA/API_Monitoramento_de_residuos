@@ -41,7 +41,6 @@ class LastContentorGPSViewSet(viewsets.ViewSet):
 class ContentorGoogleMapsViewSet(viewsets.ViewSet):
     
     def list(self, request):
-        print("Entrou")	
         try:
             
             contentor = Contentor.objects.order_by('-timestamp').first()
