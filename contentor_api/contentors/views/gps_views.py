@@ -6,6 +6,13 @@ from ..serializers import ContentorSerializer
 
 class ContentorGPSViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = ContentorSerializer
+    def get_queryset(self):
+        
+        if getattr(self, 'swagger_fake_view', False):
+            return Contentor.objects.none() 
+
+        
+        return Contentor.objects.all()
     
     def list(self, request):
         gps_data = Contentor.objects.values('id', 'latitude', 'longitude', 'timestamp')
