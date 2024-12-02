@@ -1,7 +1,7 @@
-from .contentor_views import ContentorViewSet
-from .gps_views import ContentorGPSViewSet, LastContentorGPSViewSet, ContentorGoogleMapsViewSet
-from .battery_views import BatteryViewSet, LastBatteryViewSet
-from .volume_views import VolumeViewSet, LastVolumeViewSet
+from .contentor_views import ContentorViewSet, TodayContentorViewSet, FilteredContentorViewSet
+from .gps_views import ContentorGPSViewSet, LastContentorGPSViewSet, ContentorGoogleMapsViewSet, GPSByDayViewSet
+from .battery_views import BatteryViewSet, LastBatteryViewSet, BatteryByDayViewSet
+from .volume_views import VolumeViewSet, LastVolumeViewSet, VolumeByDayViewSet
 
 __all__ = [
     "ContentorViewSet",
@@ -12,5 +12,9 @@ __all__ = [
     "LastBatteryViewSet",
     "VolumeViewSet",
     "LastVolumeViewSet",
-    
+    "TodayContentorViewSet"
+    "FilteredContentorViewSet"
+    "VolumeByDayViewSet"
+    "GPSByDayViewSet"
+    "BatteryByDayViewSet"
 ]
