@@ -9,9 +9,9 @@ from ..models import Contentor
 from ..serializers import ContentorSerializer
 
 class CustomPageNumberPagination(PageNumberPagination):
-    page_size_query_param = 'page_size'  # Controla o parâmetro de página
-    page_size = 10  # Valor padrão
-    max_page_size = 100  # Limita o número máximo de itens por página
+    page_size_query_param = 'page_size'
+    page_size = 10  
+    max_page_size = 100  
 
 class BaseDateRangeViewSet(viewsets.ViewSet):
     serializer_class = ContentorSerializer
@@ -22,15 +22,11 @@ class BaseDateRangeViewSet(viewsets.ViewSet):
         self.data_fields = data_fields
 
     def get_filtered_data(self, queryset):
-        """
-        Filtra os campos do queryset com base nas opções passadas para a classe.
-        """
+        
         return queryset.values(*self.data_fields)
     
     def get_paginated_response(self, data, request):
-        """
-        Aplica paginação ao conjunto de dados e retorna a resposta paginada.
-        """
+        
         paginator = self.pagination_class()
         paginated_data = paginator.paginate_queryset(data, request)
         return paginator.get_paginated_response(paginated_data)
