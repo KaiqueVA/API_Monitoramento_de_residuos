@@ -84,6 +84,5 @@ class GPSByDateRangeViewSet(BaseDateRangeViewSet):
         responses=BaseDateRangeViewSet.get_swagger_responses(),  # Chama a função de respostas da classe base
     )
     def list(self, request):
-        # Definir os campos a serem retornados (pode ser customizado se necessário)
         self.data_fields = ['id', 'latitude', 'longitude', 'timestamp']
         return super().list(request)
