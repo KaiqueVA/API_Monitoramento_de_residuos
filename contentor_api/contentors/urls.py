@@ -3,7 +3,7 @@ from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 
 from .views.contentor_views import ContentorViewSet, LastContentorViewSet, TodayContentorViewSet, ContentorByDateRangeViewSet
-from .views.gps_views import ContentorGPSViewSet, LastContentorGPSViewSet, ContentorGoogleMapsViewSet, GPSByDateRangeViewSet
+from .views.gps_views import ContentorGPSViewSet, LastContentorGPSViewSet, ContentorGoogleMapsViewSet, GPSByDateRangeViewSet, GPSLongerDistanceLocationViewSet
 from .views.battery_views import BatteryViewSet, LastBatteryViewSet, BatteryByDateRangeViewSet
 from .views.volume_views import VolumeViewSet, LastVolumeViewSet, VolumeByDateRangeViewSet
 # from .views import ContentorViewSet, ContentorGPSViewSet, LastContentorGPSViewSet, LastContentorViewSet, ContentorGoogleMapsViewSet
@@ -23,6 +23,7 @@ router.register(r'Contentor-Date-Range', ContentorByDateRangeViewSet, basename='
 router.register(r'Volume-Date-Range', VolumeByDateRangeViewSet, basename='Volume-Date-Range')
 router.register(r'GPS-Date-Range', GPSByDateRangeViewSet, basename='GPS-Date-Range')
 router.register(r'Battery_Date_Range', BatteryByDateRangeViewSet, basename='Battery-Date-Range')
+router.register(r'GPS-Longer-Distance-Location', GPSLongerDistanceLocationViewSet, basename='GPS-Longer-Distance-Location')
 
 
 
